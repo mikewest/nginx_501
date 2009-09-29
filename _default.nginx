@@ -1,0 +1,25 @@
+server {
+    listen          80 default;
+    server_name     localhost;
+
+    access_log      off;
+    error_log       /dev/null crit;
+
+    add_header      Vary    Accept-Encoding;
+
+    location / {
+        return 501;
+    }
+
+    error_page   501  /501.html;
+
+    location = /501.html {
+        root   /home/mikewest/public_html/_default/;
+    }
+    location = /favicon.ico {
+        root   /home/mikewest/public_html/_default/;
+    }
+    location = /robots.txt {
+        root   /home/mikewest/public_html/_default/;
+    }
+}
